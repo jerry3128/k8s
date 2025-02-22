@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: playlist-recommender-deployment
+  name: recommend-deployment
   labels:
-    app: playlist-recommender
+    app: zhiyuan-playlist-recommender
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,15 @@ spec:
         app: zhiyuan-playlist-recommender
     spec:
       containers:
-      - name: playlist-recommender
-        image: lolikon/playlists-recommender-system:0.1
-        ports:
-        - containerPort: 52004
+        - name: recommend
+          image: lolikon/playlist-recommender-system:0.1
+          ports:
+            - containerPort: 52004
+          volumeMounts:
+            - name: models-volume
+              mountPath: /app/models
+      volumes:
+        - name: models-volume
+          hostPath:
+            path: /home/zhiyuan/project2-pv2/Models
+            type: Directory
