@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playlist-recommender-deployment
+  labels:
+    app: playlist-recommender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zhiyuan-playlist-recommender
+  template:
+    metadata:
+      labels:
+        app: zhiyuan-playlist-recommender
+    spec:
+      containers:
+      - name: playlist-recommender
+        image: lolikon/playlists-recommender-system:0.1
+        ports:
+        - containerPort: 52004

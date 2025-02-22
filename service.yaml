@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: playlist-recommender-service
+spec:
+  selector:
+    app: zhiyuan-playlist-recommender
+  ports:
+    - protocol: TCP
+      port: 52004
+      targetPort: 52004
+  type: LoadBalancer
