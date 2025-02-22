@@ -16,14 +16,20 @@ spec:
     spec:
       containers:
         - name: recommend
-          image: lolikon/playlist-recommender-system:0.1
+          image: lolikon/playlist-recommender-system:0.12
           ports:
             - containerPort: 52004
           volumeMounts:
             - name: models-volume
               mountPath: /app/models
+            - name: dataset-volume
+              mountPath: /app/dataset
       volumes:
         - name: models-volume
           hostPath:
             path: /home/zhiyuan/project2-pv2/Models
+            type: Directory
+        - name: dataset-volume
+          hostPath:
+            path: /home/zhiyuan/project2-pv2/Dataset
             type: Directory
