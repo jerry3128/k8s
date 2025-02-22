@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: frequentitemsetmining
-          image: lolikon/recommender-update-system:0.1
+          image: lolikon/recommender-update-system:0.11
           ports:
             - containerPort: 5000
           volumeMounts:
