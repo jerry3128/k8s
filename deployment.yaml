@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: recommend
-          image: lolikon/playlist-recommender-system:0.12
+          image: lolikon/playlist-recommender-system:0.13
           ports:
             - containerPort: 52004
           volumeMounts:
@@ -33,3 +33,5 @@ spec:
           hostPath:
             path: /home/zhiyuan/project2-pv2/Dataset
             type: Directory
+
+# docker run -p 52004:52004 -v /home/zhiyuan/project2-pv2/Models:/app/models -v /home/zhiyuan/project2-pv2/Dataset:/app/dataset lolikon/playlist-recommender-system:0.12
