@@ -4,12 +4,13 @@ metadata:
   name: project2-pvc-zhiyuan
   namespace: zhiyuan
 spec:
-  volumeName: project2-pvc-zhiyuan
+  volumeName: project2-pv2-zhiyuan
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
+  storageClassName: standard
   selector:
     matchLabels:
       namespace: zhiyuan
