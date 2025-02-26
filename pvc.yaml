@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: project2-pvc-zhiyuan
+  namespace: zhiyuan
+spec:
+  volumeName: project2-pvc-zhiyuan
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      namespace: zhiyuan
