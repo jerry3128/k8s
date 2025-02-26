@@ -27,7 +27,7 @@ spec:
       volumes:
         - name: models-volume
           # persistentVolumeClaim:
-            # claimName: project2-pv2-zhiyuan
+          #   claimName: project2-pv2-zhiyuan
           hostPath:
             path: /home/zhiyuan/project2-pv2/Models
             type: Directory
