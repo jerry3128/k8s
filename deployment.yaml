@@ -16,21 +16,21 @@ spec:
     spec:
       containers:
         - name: recommend
-          image: lolikon/playlist-recommender-system:0.14
+          image: lolikon/playlist-recommender-system:0.15
           ports:
             - containerPort: 52004
           volumeMounts:
             - name: models-volume
-              mountPath: /app/models
+              mountPath: /app/Models
             - name: dataset-volume
-              mountPath: /app/dataset
+              mountPath: /app/Dataset
       volumes:
         - name: models-volume
-          # persistentVolumeClaim:
-          #   claimName: project2-pv2-zhiyuan
-          hostPath:
-            path: /home/zhiyuan/project2-pv2/Models
-            type: Directory
+          persistentVolumeClaim:
+            claimName: project2-pvc-zhiyuan
+          # hostPath:
+          #   path: /home/zhiyuan/project2-pv2/Models
+          #   type: Directory
         - name: dataset-volume
           # persistentVolumeClaim:
           #   claimName: project2-pv2-zhiyuan
