@@ -26,12 +26,15 @@ spec:
               mountPath: /app/dataset
       volumes:
         - name: models-volume
-          hostPath:
-            path: /home/zhiyuan/project2-pv2/Models
-            type: Directory
+          persistentVolumeClaim:
+            claimName: project2-pv2-zhiyuan
+          # hostPath:
+          #   path: /home/zhiyuan/project2-pv2/Models
+          #   type: Directory
         - name: dataset-volume
-          hostPath:
-            path: /home/zhiyuan/project2-pv2/Dataset
-            type: Directory
+            claimName: project2-pv2-zhiyuan
+          # hostPath:
+          #   path: /home/zhiyuan/project2-pv2/Dataset
+          #   type: Directory
 
 # docker run -p 52004:52004 -v /home/zhiyuan/project2-pv2/Models:/app/models -v /home/zhiyuan/project2-pv2/Dataset:/app/dataset lolikon/playlist-recommender-system:0.12
